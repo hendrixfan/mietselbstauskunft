@@ -1,0 +1,100 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{enumerate}
+\usepackage[a4paper]{geometry} % , left=5mm, top=5mm
+\usepackage{array}
+\usepackage{parskip}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{hyperref}
+\renewcommand{\cellalign}{cl}
+\pagenumbering{gobble}
+\newcommand{\Property}{}  % Your Property Address
+\newcommand{\Text}[1]{\TextField[width=2.5in, height=14pt, name=#1, charsize=12pt]{}}
+\newcommand{\Radio}[1]{\ChoiceMenu[radio, default=x, name=#1, charsize=12pt]{\mbox{}}{Ja=j, Nein=n}}
+
+\begin{document}
+\begin{Form}
+\section*{Mieter-Selbstauskunft}
+Ich bin an der Anmietung des Objekts
+\bgroup
+\def\arraystretch{2}
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{|Xl|}
+\hline
+\textbf{Adresse}: \makecell{\Property}&  \\
+\hline
+\end{tabularx}
+\end{table}
+\egroup
+
+ab \Text{date} dem interessiert.
+
+\bgroup
+\def\arraystretch{2.3}
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+~                                & \textbf{Mietinteressent} \\ \hline
+\textbf{Name, Vorname}           & \makecell{\Text{name}} \\ \hline
+\textbf{Telefonnummer}            &  \makecell{\Text{tel}} \\ \hline
+\textbf{E-Mail Adresse}          & \makecell{\Text{email}} \\ \hline
+\makecell{\textbf{Aktuelle Anschrift} \\ {\tiny Straße $\vert$ PLZ Ort}}      & \makecell{\Text{street}}  \\ \hline
+\makecell{\textbf{Derzeitiger Vermieter} \\ {\tiny Name $\vert$ Anschrift $\vert$ Telefon}}   & \makecell{\Text{current}} \\ \hline
+
+\makecell{\textbf{Förderung / Bafög}\\ {\tiny € mtl.}}     & \makecell{\Text{grant}}     \\ \hline
+\makecell{\textbf{Arbeitgeber / Nebenjob }\\ {\tiny Name $\vert$ € mtl.}} & \makecell{\Text{employer}}     \\ \hline
+\textbf{Beruf}       & \makecell{\Text{job}}              \\ \hline
+\makecell{\textbf{Bürge}\\ {\tiny Name $\vert$ Anschrift $\vert$ Telefon}} & \makecell{\Text{guarantor}}        \\ \hline
+\end{tabularx}
+\end{table}
+\egroup
+
+Außer mir sollen noch andere Personen die Wohnung / das WG-Zimmer beziehen:\\
+\Radio{other}
+\pagebreak
+
+\def\arraystretch{2.2}
+\begin{table}[h]
+    \begin{tabularx}{\textwidth}{|p{10cm}|X|}
+    \hline
+    ~                                                                               & \textbf{Mietinteressent} \\ \hline
+    Bestehen Mietrückstände aus bisherigen Mietverhältnissen?                       & \makecell{\Radio{owe}} \\ \hline
+    In den letzten fünf Jahren wurde Räumungsklage gegen mich erhoben               & \makecell{\Radio{eviction}} \\ \hline
+    In den letzten fünf Jahren wurde Zwangsvollstreckung gegen mich eingeleitet     & \makecell{\Radio{foreclosure}} \\ \hline
+    In den letzten fünf Jahren habe ich eine eidesstattliche Versicherung abgegeben & \makecell{\Radio{oath}} \\ \hline
+    In den letzten fünf Jahren wurde ein Insolvenzverfahren gegen mich eröffnet     & \makecell{\Radio{bankruptcy}} \\ \hline
+    Ich beziehe Sozialleistungen zur Zahlung der Miete/ Kaution                     & \makecell{\Radio{benefits}} \\ \hline
+    Ist eine gewerbliche Nutzung der Wohnung beabsichtigt?                          & \makecell{\Radio{commercial}} \\ \hline
+    Tierhaltung beabsichtigt?                                                       & \makecell{\Radio{animals}} \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{enumerate}
+\item Ich erkläre, dass ich in der Lage bin, alle zu übernehmenden
+      Verpflichtungen aus dem Mietvertrag, insbesondere die Erbringung der
+      Mietkaution sowie Miete nebst Nebenkosten, zu leisten.
+\item Ich erkläre, dass die vorgenannten Angaben vollständig und wahrheitsgemäß
+      gemacht wurden. Bei Abschluss eines Mietvertrages können Falschangaben
+      die Aufhebung oder fristlose Kündigung des Mietverhältnisses zur Folge
+      haben.
+\item Der Vermieter ist berechtigt, diese freiwillige Selbstauskunft nur zum
+      Zwecke der eigenen Vermietung zu nutzen. Sofern die Auskünfte nicht mehr
+      benötigt werden ‐ wenn ein Mietvertrag nicht zustande kommt ‐ hat der
+      Vermieter diese Daten gemäß Bundesdatenschutzgesetz unverzüglich zu
+      vernichten.
+\end{enumerate}
+\vspace{1,2 cm} 
+\begin{tabular}{p{7cm}p{.5cm}l}
+\dotfill \\ 
+Ort, Datum 
+\end{tabular}% 
+\hfill 
+\begin{tabular}{p{7cm}p{.5cm}l}
+\dotfill \\ 
+Unterschrift Mietinteressent
+\end{tabular}%
+\end{Form}
+\end{document}
